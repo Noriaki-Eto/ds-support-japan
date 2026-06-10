@@ -7,29 +7,26 @@
 <title>ダウン症支援財団 | WARMING WING</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --blue:     #2B6CB8;
-    --blue-lt:  #EBF3FB;
-    --blue-md:  #3B7DC8;
-    --yellow:   #F5C430;
-    --yellow-lt:#FFFBE8;
-    --yellow-md:#F0B800;
-    --white:    #FFFFFF;
-    --warm:     #F8F9FC;
-    --ink:      #1A2332;
-    --ink-2:    #4A5568;
-    --ink-3:    #8A95A3;
-    --line:     #E2E8F0;
-    --serif:    'Noto Serif JP', serif;
-    --sans:     'Noto Sans JP', sans-serif;
-    --cormorant:'Cormorant Garamond', serif;
+    --blue:    #2B6CB8;
+    --blue-lt: #EBF3FB;
+    --yellow:  #F5C430;
+    --yl-lt:   #FFFBE8;
+    --yl-md:   #E8B000;
+    --white:   #FFFFFF;
+    --warm:    #F8F9FC;
+    --ink:     #1A2332;
+    --ink-2:   #4A5568;
+    --ink-3:   #8A95A3;
+    --line:    #E2E8F0;
+    --serif:   'Noto Serif JP', serif;
+    --sans:    'Noto Sans JP', sans-serif;
+    --corm:    'Cormorant Garamond', serif;
   }
-
   html { scroll-behavior: smooth; }
   body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.7; font-size: 15px; }
   h1,h2,h3 { font-family: var(--serif); font-weight: 500; line-height: 1.4; letter-spacing: 0.05em; }
@@ -38,41 +35,15 @@
   .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
   .section    { padding: 76px 0; }
   .section--warm { background: var(--warm); }
-  .section--blue { background: var(--blue); }
+  .label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; font-family: var(--corm); font-style: italic; color: var(--blue); display: block; margin-bottom: 10px; }
+  .divider { width: 40px; height: 3px; background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%); margin: 14px 0 32px; border-radius: 2px; }
 
-  .label {
-    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-    font-family: var(--cormorant); font-style: italic;
-    color: var(--blue); display: block; margin-bottom: 10px;
-  }
-  .divider {
-    width: 40px; height: 3px;
-    background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%);
-    margin: 14px 0 32px; border-radius: 2px;
-  }
-
-  /* ===== HEADER ===== */
-  header {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
-    border-bottom: 2px solid var(--yellow);
-  }
-  .nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 13px 24px; max-width: 860px; margin: 0 auto;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-ribbon {
-    width: 28px; height: 36px; position: relative; flex-shrink: 0;
-  }
-  .nav-logo-ribbon::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 14px; height: 36px; background: var(--blue); border-radius: 14px 14px 0 14px;
-  }
-  .nav-logo-ribbon::after {
-    content: ''; position: absolute; top: 0; right: 0;
-    width: 14px; height: 36px; background: var(--yellow); border-radius: 14px 14px 14px 0;
-  }
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 2px solid var(--yellow); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; max-width: 860px; margin: 0 auto; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-icon { width: 32px; height: 32px; position: relative; flex-shrink: 0; }
+  .nav-logo-icon canvas { width: 32px; height: 32px; }
   .nav-logo-text { font-size: 0.82rem; color: var(--ink); font-family: var(--serif); line-height: 1.3; }
   .nav-logo-text span { display: block; font-size: 0.68rem; color: var(--ink-3); font-family: var(--sans); font-weight: 300; }
   .nav-links { display: flex; gap: 22px; list-style: none; }
@@ -80,199 +51,100 @@
   .nav-links a:hover { color: var(--blue); }
   @media (max-width: 600px) { .nav-links { display: none; } }
 
-  /* ===== HERO ===== */
-  .hero {
-    background: linear-gradient(150deg, #EBF3FB 0%, #FFFBE8 55%, #EBF3FB 100%);
-    padding: 80px 24px 72px; text-align: center; position: relative; overflow: hidden;
+  /* HERO */
+  .hero { position: relative; height: 100svh; min-height: 560px; max-height: 780px; overflow: hidden; background: #0a1628; }
+  #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-content {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 0 24px; pointer-events: none; z-index: 2;
   }
-  .hero::before {
-    content: '';
-    position: absolute; top: -80px; right: -80px;
-    width: 320px; height: 320px; border-radius: 50%;
-    background: rgba(245,196,48,0.12);
-  }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -60px; left: -60px;
-    width: 260px; height: 260px; border-radius: 50%;
-    background: rgba(43,108,184,0.08);
-  }
-  .hero-ribbon {
-    display: flex; justify-content: center; gap: 6px; margin-bottom: 24px;
-  }
-  .ribbon-half {
-    width: 22px; height: 52px; border-radius: 22px 22px 0 22px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  }
-  .ribbon-half--blue   { background: var(--blue); transform: rotate(-8deg); }
-  .ribbon-half--yellow { background: var(--yellow); transform: rotate(8deg) translateY(4px); border-radius: 22px 22px 22px 0; }
-  .hero-en {
-    font-family: var(--cormorant); font-style: italic;
-    font-size: 0.78rem; letter-spacing: 0.25em; color: var(--blue); margin-bottom: 16px; display: block;
-  }
-  .hero h1 {
-    font-size: clamp(1.5rem, 4vw, 2.4rem);
-    color: var(--ink); margin-bottom: 20px; position: relative; z-index: 1;
-  }
-  .hero h1 em { font-style: normal; color: var(--blue); }
-  .hero-sub {
-    font-size: 0.95rem; color: var(--ink-2);
-    max-width: 480px; margin: 0 auto 32px; line-height: 2; position: relative; z-index: 1;
-  }
-  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
-  .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: transform 0.15s, box-shadow 0.15s; }
+  .hero-en { font-family: var(--corm); font-style: italic; font-size: 0.78rem; letter-spacing: 0.28em; color: rgba(245,196,48,0.85); margin-bottom: 18px; display: block; }
+  .hero h1 { font-size: clamp(1.5rem, 4.5vw, 2.6rem); color: white; margin-bottom: 20px; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+  .hero h1 em { font-style: normal; color: var(--yellow); }
+  .hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.65); max-width: 420px; line-height: 2.1; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; pointer-events: all; }
+  .btn { display: inline-block; padding: 12px 26px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; transition: transform 0.15s, box-shadow 0.15s; cursor: pointer; }
   .btn:hover { transform: translateY(-2px); text-decoration: none; }
-  .btn-blue   { background: var(--blue); color: white; box-shadow: 0 4px 14px rgba(43,108,184,0.3); }
-  .btn-yellow { background: var(--yellow); color: var(--ink); box-shadow: 0 4px 14px rgba(245,196,48,0.35); }
-  .hero-note {
-    display: inline-block; margin-top: 24px;
-    border: 1px solid rgba(43,108,184,0.2); border-radius: 20px;
-    font-size: 0.72rem; color: var(--ink-3); padding: 5px 16px;
-    position: relative; z-index: 1;
-  }
+  .btn-blue { background: var(--blue); color: white; box-shadow: 0 4px 16px rgba(43,108,184,0.4); }
+  .btn-yellow { background: var(--yellow); color: var(--ink); box-shadow: 0 4px 16px rgba(245,196,48,0.4); }
+  .hero-hint { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; z-index: 3; animation: fadeHint 3s ease-in-out infinite; }
+  @keyframes fadeHint { 0%,100%{opacity:.3} 50%{opacity:.7} }
+  .hero-note { display: inline-block; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; font-size: 0.7rem; color: rgba(255,255,255,0.35); padding: 5px 16px; margin-top: 16px; pointer-events: none; }
 
-  /* ===== COLORS STRIP ===== */
-  .color-strip {
-    height: 6px;
-    background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%);
-  }
+  /* COLOR STRIP */
+  .color-strip { height: 5px; background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%); }
 
-  /* ===== VISION ===== */
-  .vision-quote {
-    border-left: 4px solid var(--yellow);
-    background: var(--yellow-lt);
-    padding: 24px 28px; border-radius: 0 10px 10px 0; margin-bottom: 28px;
-  }
+  /* VISION */
+  .vision-quote { border-left: 4px solid var(--yellow); background: var(--yl-lt); padding: 22px 26px; border-radius: 0 10px 10px 0; margin-bottom: 26px; }
   .vision-quote p { font-family: var(--serif); font-size: 1rem; color: var(--ink); line-height: 2; }
 
-  /* ===== THREE ROLES ===== */
+  /* ROLES */
   .roles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
   @media (max-width: 640px) { .roles-grid { grid-template-columns: 1fr; } }
-  .role-card { border-radius: 12px; padding: 26px 20px; border: 1.5px solid var(--line); background: white; }
+  .role-card { border-radius: 12px; padding: 24px 20px; border: 1.5px solid var(--line); background: white; }
   .role-card--main { background: var(--blue); border-color: var(--blue); }
-  .role-card--yellow { background: var(--yellow-lt); border-color: var(--yellow); }
-  .role-badge {
-    display: inline-block; font-size: 0.65rem; padding: 3px 10px;
-    border-radius: 4px; margin-bottom: 14px; letter-spacing: 0.08em; font-weight: 500;
-  }
-  .role-badge--blue   { background: var(--yellow); color: var(--blue); }
-  .role-badge--gray   { background: var(--ink); color: white; }
-  .role-badge--yellow { background: var(--yellow-md); color: var(--ink); }
+  .role-card--yellow { background: var(--yl-lt); border-color: var(--yellow); }
+  .role-badge { display: inline-block; font-size: 0.65rem; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; letter-spacing: 0.08em; font-weight: 500; }
+  .badge--b { background: var(--yellow); color: var(--blue); }
+  .badge--g { background: var(--ink); color: white; }
+  .badge--y { background: var(--yl-md); color: var(--ink); }
   .role-card h3 { font-size: 1rem; margin-bottom: 8px; }
   .role-card--main h3 { color: white; }
   .role-rep { font-size: 0.75rem; margin-bottom: 10px; }
-  .role-card--main .role-rep { color: rgba(255,255,255,0.55); }
+  .role-card--main .role-rep { color: rgba(255,255,255,0.5); }
   .role-card p { font-size: 0.82rem; line-height: 1.75; }
-  .role-card--main p { color: rgba(255,255,255,0.75); }
+  .role-card--main p { color: rgba(255,255,255,0.72); }
 
-  /* ===== MONEY FLOW ===== */
-  .money-box-outer {
-    background: linear-gradient(160deg, var(--blue) 0%, #1E5090 100%);
-    border-radius: 16px; padding: 36px 28px; overflow: hidden; position: relative;
-  }
-  .money-box-outer::before {
-    content: '';
-    position: absolute; top: -40px; right: -40px;
-    width: 200px; height: 200px; border-radius: 50%;
-    background: rgba(245,196,48,0.08);
-  }
-  .money-center { text-align: center; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .money-amount { font-family: var(--cormorant); font-size: 3.2rem; color: var(--yellow); font-style: italic; }
-  .money-desc { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 4px; }
+  /* MONEY */
+  .money-outer { background: linear-gradient(160deg, #0f1f3d 0%, #1a3260 100%); border-radius: 16px; padding: 36px 28px; position: relative; overflow: hidden; }
+  .money-outer::before { content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; background: rgba(245,196,48,0.06); }
+  .money-center { text-align: center; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .money-amount { font-family: var(--corm); font-size: 3rem; color: var(--yellow); font-style: italic; }
+  .money-desc { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
   .money-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
-  .money-card {
-    flex: 1; min-width: 140px; background: rgba(255,255,255,0.09);
-    border-radius: 8px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12);
-  }
-  .money-card--yellow { background: rgba(245,196,48,0.15); border-color: rgba(245,196,48,0.35); }
-  .money-card-label { font-size: 0.68rem; color: var(--yellow); margin-bottom: 4px; }
-  .money-card-val { font-family: var(--serif); color: white; font-size: 0.92rem; }
-  .money-card-sub { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
-  .money-arrow { color: var(--yellow); font-size: 1.3rem; flex-shrink: 0; }
-  .money-arrow-v { text-align: center; color: var(--yellow); font-size: 1.3rem; margin: 6px 0; }
-  .money-return {
-    margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .money-return-label { font-size: 0.72rem; color: var(--yellow); margin-bottom: 8px; }
-  .money-return p { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.8; }
+  .money-card { flex: 1; min-width: 130px; background: rgba(255,255,255,0.07); border-radius: 8px; padding: 13px 15px; border: 1px solid rgba(255,255,255,0.1); }
+  .money-card--y { background: rgba(245,196,48,0.12); border-color: rgba(245,196,48,0.3); }
+  .money-card-l { font-size: 0.68rem; color: var(--yellow); margin-bottom: 4px; }
+  .money-card-v { font-family: var(--serif); color: white; font-size: 0.9rem; }
+  .money-card-s { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+  .money-arr { color: var(--yellow); font-size: 1.2rem; flex-shrink: 0; }
+  .money-arr-v { text-align: center; color: var(--yellow); font-size: 1.2rem; margin: 6px 0; }
+  .money-return { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .money-return-l { font-size: 0.7rem; color: var(--yellow); margin-bottom: 6px; }
+  .money-return p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.8; }
 
-  /* ===== PRINCIPLES ===== */
+  /* PRINCIPLES */
   .principle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   @media (max-width: 600px) { .principle-grid { grid-template-columns: 1fr; } }
-  .principle-card {
-    padding: 22px; border-radius: 10px; background: white;
-    border: 1px solid var(--line); display: flex; gap: 14px; align-items: flex-start;
-  }
-  .principle-card:nth-child(odd) { border-top: 3px solid var(--blue); }
-  .principle-card:nth-child(even) { border-top: 3px solid var(--yellow); }
-  .principle-num { font-family: var(--cormorant); font-size: 1.5rem; font-style: italic; line-height: 1; flex-shrink: 0; margin-top: 2px; }
-  .principle-card:nth-child(odd)  .principle-num { color: var(--blue); }
-  .principle-card:nth-child(even) .principle-num { color: var(--yellow-md); }
-  .principle-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
-  .principle-desc { font-size: 0.82rem; color: var(--ink-2); line-height: 1.7; }
+  .pc { padding: 22px; border-radius: 10px; background: white; border: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; }
+  .pc:nth-child(odd)  { border-top: 3px solid var(--blue); }
+  .pc:nth-child(even) { border-top: 3px solid var(--yellow); }
+  .pc-num { font-family: var(--corm); font-size: 1.5rem; font-style: italic; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+  .pc:nth-child(odd) .pc-num { color: var(--blue); }
+  .pc:nth-child(even) .pc-num { color: var(--yl-md); }
+  .pc-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 5px; }
+  .pc-desc { font-size: 0.82rem; color: var(--ink-2); line-height: 1.7; }
 
-  /* ===== PHASES ===== */
-  .phases { display: flex; flex-direction: column; gap: 0; }
-  .phase-item {
-    display: flex; gap: 20px; align-items: flex-start; padding: 24px 0;
-    border-bottom: 1px solid var(--line);
-  }
+  /* PHASES */
+  .phase-item { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
   .phase-item:last-child { border-bottom: none; }
-  .phase-dot {
-    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--cormorant); font-size: 1.2rem; font-style: italic; font-weight: 400;
-  }
-  .phase-dot--1 { background: var(--blue-lt); color: var(--blue); border: 2px solid var(--blue); }
-  .phase-dot--2 { background: var(--yellow-lt); color: var(--yellow-md); border: 2px solid var(--yellow); }
-  .phase-dot--3 { background: var(--blue); color: var(--yellow); }
+  .phase-dot { width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--corm); font-size: 1.2rem; font-style: italic; }
+  .pd1 { background: var(--blue-lt); color: var(--blue); border: 2px solid var(--blue); }
+  .pd2 { background: var(--yl-lt); color: var(--yl-md); border: 2px solid var(--yellow); }
+  .pd3 { background: var(--blue); color: var(--yellow); }
   .phase-body { flex: 1; }
-  .phase-time { font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 4px; }
-  .phase-title { font-family: var(--serif); font-size: 1rem; color: var(--ink); margin-bottom: 8px; }
+  .phase-time { font-size: 0.72rem; color: var(--ink-3); margin-bottom: 3px; }
+  .phase-title { font-family: var(--serif); font-size: 1rem; color: var(--ink); margin-bottom: 7px; }
   .phase-body p { font-size: 0.84rem; }
 
-  /* ===== AWARENESS ===== */
-  .awareness-box {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-md) 100%);
-    border-radius: 14px; padding: 36px 28px; text-align: center; position: relative; overflow: hidden;
-  }
-  .awareness-box::after {
-    content: '';
-    position: absolute; bottom: -30px; right: -30px;
-    width: 160px; height: 160px; border-radius: 50%;
-    background: rgba(245,196,48,0.1);
-  }
-  .awareness-date {
-    font-family: var(--cormorant); font-size: 0.8rem; font-style: italic;
-    letter-spacing: 0.2em; color: var(--yellow); margin-bottom: 12px;
-  }
-  .awareness-box h3 { color: white; font-size: 1.2rem; margin-bottom: 12px; }
-  .awareness-box p { color: rgba(255,255,255,0.75); font-size: 0.88rem; max-width: 480px; margin: 0 auto; }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--ink);
-    border-top: 4px solid var(--yellow);
-    padding: 36px 24px 28px;
-  }
-  .footer-inner {
-    max-width: 860px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: flex-start;
-    flex-wrap: wrap; gap: 20px; margin-bottom: 20px;
-  }
-  .footer-logo-wrap { display: flex; align-items: center; gap: 10px; }
-  .footer-ribbon {
-    display: flex; gap: 3px;
-  }
-  .footer-r {
-    width: 10px; height: 24px; border-radius: 10px;
-  }
-  .footer-r--b { background: var(--blue); border-radius: 10px 10px 0 10px; }
-  .footer-r--y { background: var(--yellow); border-radius: 10px 10px 10px 0; transform: translateY(2px); }
-  .footer-logo-text { color: white; font-family: var(--serif); font-size: 0.88rem; }
-  .footer-logo-text span { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.4); font-family: var(--sans); margin-top: 2px; }
-  .footer-note { font-size: 0.72rem; color: rgba(255,255,255,0.3); max-width: 380px; line-height: 1.7; }
-  .footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; max-width: 860px; margin: 0 auto; }
+  /* FOOTER */
+  footer { background: var(--ink); border-top: 4px solid var(--yellow); padding: 36px 24px 24px; }
+  .footer-inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-bottom: 20px; }
+  .footer-logo { color: white; font-family: var(--serif); font-size: 0.88rem; }
+  .footer-logo span { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.35); font-family: var(--sans); margin-top: 3px; }
+  .footer-note { font-size: 0.72rem; color: rgba(255,255,255,0.28); max-width: 380px; line-height: 1.7; }
+  .footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; max-width: 860px; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -280,14 +152,8 @@
 <header>
   <nav class="nav">
     <a href="/" class="nav-logo">
-      <div class="nav-logo-ribbon">
-        <div class="ribbon-half ribbon-half--blue"></div>
-        <div class="ribbon-half ribbon-half--yellow"></div>
-      </div>
-      <div class="nav-logo-text">
-        Warming Wing
-        <span>ダウン症支援 全国基盤</span>
-      </div>
+      <canvas class="nav-logo-icon" id="miniCanvas" width="32" height="32"></canvas>
+      <div class="nav-logo-text">Warming Wing <span>ダウン症支援 全国基盤</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="#vision">ビジョン</a></li>
@@ -298,30 +164,23 @@
   </nav>
 </header>
 
-<div class="color-strip"></div>
-
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-ribbon">
-    <div class="ribbon-half ribbon-half--blue" style="width:18px;height:44px;"></div>
-    <div class="ribbon-half ribbon-half--yellow" style="width:18px;height:44px;"></div>
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <span class="hero-en">WARMING WING — 温める翼</span>
+    <h1>白い灯りを囲む、あの場を。<br><em>一度きりの善意で、終わらせない。</em></h1>
+    <p class="hero-sub">志あるお金を、眠らせない。<br>確実に、家族のもとへ届け、<br>その姿を、支えた人へ還す。</p>
+    <div class="hero-btns">
+      <a href="#vision" class="btn btn-blue">ビジョンを読む</a>
+      <a href="#flow" class="btn btn-yellow">資金の流れを見る</a>
+    </div>
+    <span class="hero-note">※ このサイトは現在非公開です。構想準備中。</span>
   </div>
-  <span class="hero-en">WARMING WING — 温める翼</span>
-  <h1>
-    白い灯りを囲む、あの場を。<br>
-    <em>一度きりの善意で、終わらせない。</em>
-  </h1>
-  <p class="hero-sub">
-    志あるお金を、眠らせない。<br>
-    確実に、家族のもとへ届け、<br>
-    その姿を、支えた人へ還す。
-  </p>
-  <div class="hero-btns">
-    <a href="#vision" class="btn btn-blue">ビジョンを読む</a>
-    <a href="#flow" class="btn btn-yellow">資金の流れを見る</a>
-  </div>
-  <span class="hero-note">※ このサイトは現在非公開です。構想準備中。</span>
+  <div class="hero-hint">画面をタップすると光が広がります</div>
 </section>
+
+<div class="color-strip"></div>
 
 <!-- VISION -->
 <section class="section" id="vision">
@@ -329,27 +188,14 @@
     <span class="label">Vision</span>
     <h2 style="margin-bottom:14px;">なぜ、この基盤が必要か</h2>
     <div class="divider"></div>
-    <div class="vision-quote">
-      <p>ダウン症のある方の生涯を、地域だけで支えるには限界がある。神戸で生まれたつながりを、全国の家族へ届けるために、持続可能な資金基盤と透明な仕組みが必要だ。</p>
-    </div>
+    <div class="vision-quote"><p>ダウン症のある方の生涯を、地域だけで支えるには限界がある。神戸で生まれたつながりを、全国の家族へ届けるために、持続可能な資金基盤と透明な仕組みが必要だ。</p></div>
     <p>ダウン症サポートセンターin神戸は2025年3月に設立されました。芦屋カフェでの就労支援、集いの場での家族支援。小さくても、確かな現場があります。</p>
     <p style="margin-top:16px;">しかし現場を続けるには、安定した資金が必要です。一般財団法人として基本財産を確保し、その運用益で永続的に現場を支える——これが「Warming Wing」の構想です。</p>
   </div>
 </section>
 
-<!-- AWARENESS -->
-<section class="section section--warm">
-  <div class="container">
-    <div class="awareness-box">
-      <div class="awareness-date">WORLD DOWN SYNDROME DAY — 3.21</div>
-      <h3>21トリソミー。3本の21番染色体。</h3>
-      <p>ダウン症のシンボルカラーは青と黄。3月21日は「世界ダウン症の日」。この2色は、多様性と希望を象徴します。Warming Wingは、この色を誇りとして掲げます。</p>
-    </div>
-  </div>
-</section>
-
 <!-- STRUCTURE -->
-<section class="section" id="structure">
+<section class="section section--warm" id="structure">
   <div class="container">
     <span class="label">Structure</span>
     <h2 style="margin-bottom:14px;">三つの立場が、それぞれの場所で</h2>
@@ -357,21 +203,21 @@
     <p style="margin-bottom:28px;">担う人・支える人・つなぐ人。互いが独立した信頼で結ばれ、一人を通さなければ動けない構造にしない。</p>
     <div class="roles-grid">
       <div class="role-card role-card--main">
-        <span class="role-badge role-badge--blue">担い手（主役）</span>
+        <span class="role-badge badge--b">担い手（主役）</span>
         <h3>一般社団法人<br>ヤドリギアート</h3>
         <p class="role-rep" style="color:rgba(255,255,255,0.45);">代表：江藤惠美</p>
-        <p>集いの場を主催・運営する。現場・もてなし・デザイン・当事者の感覚。この場の主役。</p>
+        <p>集いの場を主催・運営する。現場・もてなし・当事者の感覚。この場の主役。</p>
       </div>
       <div class="role-card">
-        <span class="role-badge role-badge--gray">外部協力</span>
+        <span class="role-badge badge--g">外部協力</span>
         <h3>atelier TECNOFORM</h3>
         <p class="role-rep" style="color:var(--ink-3);">代表：江藤徳晃</p>
         <p>仕組み・記録・運営を外部として支える。中にいないから、透明に報告できる。</p>
       </div>
       <div class="role-card role-card--yellow">
-        <span class="role-badge role-badge--yellow">支える人</span>
+        <span class="role-badge badge--y">支える人</span>
         <h3>財団・支援者</h3>
-        <p class="role-rep" style="color:var(--yellow-md);">志に共感する方々</p>
+        <p class="role-rep" style="color:var(--yl-md);">志に共感する方々</p>
         <p>場の費用を支える。お金は出すが、運営には口を出さない。志が届くことだけを願う。</p>
       </div>
     </div>
@@ -379,47 +225,31 @@
 </section>
 
 <!-- MONEY FLOW -->
-<section class="section section--warm" id="flow">
+<section class="section" id="flow">
   <div class="container">
     <span class="label">Fund Flow</span>
     <h2 style="margin-bottom:14px;">お金は支援から、報告は支援へ</h2>
     <div class="divider"></div>
     <p style="margin-bottom:28px;">一方通行にしない。使い道が、必ず還る。</p>
-    <div class="money-box-outer">
+    <div class="money-outer">
       <div class="money-center">
         <div class="money-amount">¥200,000,000</div>
         <div class="money-desc">基本財産（一般財団法人へ寄付）</div>
       </div>
-      <div class="money-arrow-v">↓</div>
+      <div class="money-arr-v">↓</div>
       <div class="money-row">
-        <div class="money-card">
-          <div class="money-card-label">運用方法</div>
-          <div class="money-card-val">国債・安全運用</div>
-          <div class="money-card-sub">元本を守る運用</div>
-        </div>
-        <span class="money-arrow">→</span>
-        <div class="money-card money-card--yellow">
-          <div class="money-card-label">年間運用益（目安）</div>
-          <div class="money-card-val" style="color:var(--yellow);">約¥2,000,000/年</div>
-          <div class="money-card-sub">活動費として分配</div>
-        </div>
+        <div class="money-card"><div class="money-card-l">運用方法</div><div class="money-card-v">国債・安全運用</div><div class="money-card-s">元本を守る運用</div></div>
+        <span class="money-arr">→</span>
+        <div class="money-card money-card--y"><div class="money-card-l">年間運用益（目安）</div><div class="money-card-v" style="color:var(--yellow);">約¥2,000,000/年</div><div class="money-card-s">活動費として分配</div></div>
       </div>
-      <div class="money-arrow-v">↓</div>
+      <div class="money-arr-v">↓</div>
       <div class="money-row">
-        <div class="money-card">
-          <div class="money-card-label">支援先①</div>
-          <div class="money-card-val">ヤドリギアート</div>
-          <div class="money-card-sub">集いの場・運営費</div>
-        </div>
+        <div class="money-card"><div class="money-card-l">支援先①</div><div class="money-card-v">ヤドリギアート</div><div class="money-card-s">集いの場・運営費</div></div>
         <span style="color:var(--yellow);">＋</span>
-        <div class="money-card">
-          <div class="money-card-label">支援先②</div>
-          <div class="money-card-val">ダウン症サポートセンターin神戸</div>
-          <div class="money-card-sub">地域支援活動費</div>
-        </div>
+        <div class="money-card"><div class="money-card-l">支援先②</div><div class="money-card-v">ダウン症サポートセンターin神戸</div><div class="money-card-s">地域支援活動費</div></div>
       </div>
       <div class="money-return">
-        <div class="money-return-label">そして、報告が、支援者へ還る</div>
+        <div class="money-return-l">そして、報告が、支援者へ還る</div>
         <p>「あなたの支えで、こんな家族が、こうつながりました」。何にいくら使い、どんな場が生まれたかを、見える形でお返しする。</p>
       </div>
     </div>
@@ -427,100 +257,259 @@
 </section>
 
 <!-- PRINCIPLES -->
-<section class="section" id="principles">
+<section class="section section--warm" id="principles">
   <div class="container">
     <span class="label">Principles</span>
     <h2 style="margin-bottom:14px;">なぜ、この形なのか</h2>
     <div class="divider"></div>
     <div class="principle-grid">
-      <div class="principle-card">
-        <span class="principle-num">01</span>
-        <div>
-          <div class="principle-title">主役は、現場の人</div>
-          <div class="principle-desc">場を担うのはヤドリギ。当事者の感覚を持つ人が主役。仕組みを作る人が、場を支配しない。</div>
-        </div>
-      </div>
-      <div class="principle-card">
-        <span class="principle-num">02</span>
-        <div>
-          <div class="principle-title">支える側は、外から</div>
-          <div class="principle-desc">外部協力だからこそ立場が混ざらず、使い道を客観的に記録し、透明に報告できる。</div>
-        </div>
-      </div>
-      <div class="principle-card">
-        <span class="principle-num">03</span>
-        <div>
-          <div class="principle-title">お金と口出しを、分ける</div>
-          <div class="principle-desc">支援者はお金を出すが運営には口を出さない。志は尊重され、運営は自律する。</div>
-        </div>
-      </div>
-      <div class="principle-card">
-        <span class="principle-num">04</span>
-        <div>
-          <div class="principle-title">使い道が、必ず見える</div>
-          <div class="principle-desc">法人と法人の関係だから報告が仕組みになる。志あるお金を、眠らせない。</div>
-        </div>
-      </div>
+      <div class="pc"><span class="pc-num">01</span><div><div class="pc-title">主役は、現場の人</div><div class="pc-desc">場を担うのはヤドリギ。当事者の感覚を持つ人が主役。仕組みを作る人が、場を支配しない。</div></div></div>
+      <div class="pc"><span class="pc-num">02</span><div><div class="pc-title">支える側は、外から</div><div class="pc-desc">外部協力だからこそ立場が混ざらず、使い道を客観的に記録し、透明に報告できる。</div></div></div>
+      <div class="pc"><span class="pc-num">03</span><div><div class="pc-title">お金と口出しを、分ける</div><div class="pc-desc">支援者はお金を出すが運営には口を出さない。志は尊重され、運営は自律する。</div></div></div>
+      <div class="pc"><span class="pc-num">04</span><div><div class="pc-title">使い道が、必ず見える</div><div class="pc-desc">法人と法人の関係だから報告が仕組みになる。志あるお金を、眠らせない。</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- PHASES -->
-<section class="section section--warm" id="phases">
+<section class="section" id="phases">
   <div class="container">
     <span class="label">Roadmap</span>
     <h2 style="margin-bottom:14px;">段階的に、確実に</h2>
     <div class="divider"></div>
-    <div class="phases">
-      <div class="phase-item">
-        <div class="phase-dot phase-dot--1">I</div>
-        <div class="phase-body">
-          <div class="phase-time">現在 〜 2027年</div>
-          <div class="phase-title">実績を積む</div>
-          <p>ダウン症サポートセンターin神戸・ヤドリギアートの活動実績を積む。報告書を整備し、一般財団法人の設立準備を進める。</p>
-        </div>
-      </div>
-      <div class="phase-item">
-        <div class="phase-dot phase-dot--2">II</div>
-        <div class="phase-body">
-          <div class="phase-time">2027年 〜 2029年</div>
-          <div class="phase-title">一般財団法人を設立</div>
-          <p>基本財産2億円で一般財団法人を設立。国債運用を開始し、年間約200万円の運用益で2つの活動を制度的に支援する。</p>
-        </div>
-      </div>
-      <div class="phase-item">
-        <div class="phase-dot phase-dot--3">III</div>
-        <div class="phase-body">
-          <div class="phase-time">2029年以降</div>
-          <div class="phase-title">公益財団法人へ</div>
-          <p>実績・透明性・ガバナンスが整ったタイミングで公益認定を申請。寄付者の税制優遇が生まれ、支援の輪が全国へ広がる。</p>
-        </div>
-      </div>
-    </div>
+    <div class="phase-item"><div class="phase-dot pd1">I</div><div class="phase-body"><div class="phase-time">現在 〜 2027年</div><div class="phase-title">実績を積む</div><p>ダウン症サポートセンターin神戸・ヤドリギアートの活動実績を積む。報告書を整備し、一般財団法人の設立準備を進める。</p></div></div>
+    <div class="phase-item"><div class="phase-dot pd2">II</div><div class="phase-body"><div class="phase-time">2027年 〜 2029年</div><div class="phase-title">一般財団法人を設立</div><p>基本財産2億円で設立。国債運用を開始し、年間約200万円の運用益で2つの活動を制度的に支援する。</p></div></div>
+    <div class="phase-item"><div class="phase-dot pd3">III</div><div class="phase-body"><div class="phase-time">2029年以降</div><div class="phase-title">公益財団法人へ</div><p>実績・透明性・ガバナンスが整ったタイミングで公益認定を申請。支援の輪が全国へ広がる。</p></div></div>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo-wrap">
-      <div class="footer-ribbon">
-        <div class="footer-r footer-r--b"></div>
-        <div class="footer-r footer-r--y"></div>
-      </div>
-      <div class="footer-logo-text">
-        Warming Wing
-        <span>ダウン症支援 全国基盤 構想準備サイト</span>
-      </div>
-    </div>
-    <div class="footer-note">
-      ※ このサイトは現在非公開です。構想準備中。具体の契約・会計・税務は専門家の確認のもとで行います。<br>
-      連携：ヤドリギアート × atelier TECNOFORM × ダウン症サポートセンターin神戸
-    </div>
+    <div class="footer-logo">Warming Wing <span>ダウン症支援 全国基盤 構想準備サイト</span></div>
+    <div class="footer-note">※ このサイトは現在非公開です。構想準備中。具体の契約・会計・税務は専門家の確認のもとで行います。<br>連携：ヤドリギアート × atelier TECNOFORM × ダウン症サポートセンターin神戸</div>
   </div>
-  <div class="footer-copy">
-    © 2025 Warming Wing Project. All rights reserved.
-  </div>
+  <div class="footer-copy">© 2025 Warming Wing Project. All rights reserved.</div>
 </footer>
 
+<script>
+// ===== HERO CANVAS: 光の粒子がつながるインタラクティブアニメーション =====
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  const BLUE   = { r:43,  g:108, b:184 };
+  const YELLOW = { r:245, g:196, b:48  };
+  const WHITE  = { r:255, g:255, b:255 };
+
+  let W, H, particles = [], ripples = [];
+
+  function resize(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); initParticles(); });
+
+  // --- Particle ---
+  class Particle {
+    constructor(x, y, type){
+      this.x = x || Math.random() * W;
+      this.y = y || Math.random() * H;
+      this.type = type || (Math.random() < 0.55 ? 'blue' : 'yellow');
+      this.r  = Math.random() * 2.5 + 1.2;
+      this.vx = (Math.random() - 0.5) * 0.45;
+      this.vy = (Math.random() - 0.5) * 0.45;
+      this.alpha = Math.random() * 0.5 + 0.4;
+      this.pulse = Math.random() * Math.PI * 2;
+      this.pulseSpeed = Math.random() * 0.025 + 0.008;
+      this.life = 1; // 0〜1
+      this.maxLife = type ? 200 + Math.random()*200 : Infinity;
+      this.age = 0;
+    }
+    get color(){ return this.type === 'blue' ? BLUE : (this.type === 'yellow' ? YELLOW : WHITE); }
+    update(){
+      this.x += this.vx;
+      this.y += this.vy;
+      this.pulse += this.pulseSpeed;
+      this.age++;
+      // wrap
+      if(this.x < -10) this.x = W+10;
+      if(this.x > W+10) this.x = -10;
+      if(this.y < -10) this.y = H+10;
+      if(this.y > H+10) this.y = -10;
+      // fade out if temporary
+      if(this.maxLife !== Infinity){
+        this.life = Math.min(1, Math.min(this.age/30, (this.maxLife - this.age)/30));
+      }
+    }
+    draw(){
+      const pa = this.alpha * (0.7 + 0.3 * Math.sin(this.pulse)) * this.life;
+      const c = this.color;
+      const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 4);
+      glow.addColorStop(0, `rgba(${c.r},${c.g},${c.b},${pa})`);
+      glow.addColorStop(1, `rgba(${c.r},${c.g},${c.b},0)`);
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r * 4, 0, Math.PI*2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${Math.min(1, pa * 1.8)})`;
+      ctx.fill();
+    }
+  }
+
+  // --- Ripple ---
+  class Ripple {
+    constructor(x, y){
+      this.x = x; this.y = y;
+      this.r = 0; this.maxR = Math.max(W,H) * 0.4;
+      this.alpha = 0.6; this.speed = 3.5;
+    }
+    update(){ this.r += this.speed; this.speed *= 0.97; this.alpha *= 0.96; }
+    draw(){
+      if(this.alpha < 0.01) return;
+      const grad = ctx.createRadialGradient(this.x,this.y,this.r*0.7,this.x,this.y,this.r);
+      grad.addColorStop(0, `rgba(245,196,48,0)`);
+      grad.addColorStop(0.6, `rgba(245,196,48,${this.alpha*0.25})`);
+      grad.addColorStop(1, `rgba(43,108,184,0)`);
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    }
+    get done(){ return this.alpha < 0.01 || this.r > this.maxR; }
+  }
+
+  function initParticles(){
+    const count = Math.floor(W * H / 9000);
+    particles = Array.from({length: Math.min(Math.max(count, 28), 65)}, () => new Particle());
+  }
+  initParticles();
+
+  // 接続線を描画
+  function drawConnections(){
+    const MAX_DIST = Math.min(W, H) * 0.18;
+    for(let i = 0; i < particles.length; i++){
+      const a = particles[i];
+      for(let j = i+1; j < particles.length; j++){
+        const b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if(d < MAX_DIST){
+          const t = 1 - d/MAX_DIST;
+          const ca = a.color, cb = b.color;
+          const alpha = t * 0.25 * Math.min(a.life, b.life);
+          const mid = { r:(ca.r+cb.r)/2, g:(ca.g+cb.g)/2, b:(ca.b+cb.b)/2 };
+          const grad = ctx.createLinearGradient(a.x,a.y,b.x,b.y);
+          grad.addColorStop(0, `rgba(${ca.r},${ca.g},${ca.b},${alpha})`);
+          grad.addColorStop(0.5, `rgba(${mid.r},${mid.g},${mid.b},${alpha*1.3})`);
+          grad.addColorStop(1, `rgba(${cb.r},${cb.g},${cb.b},${alpha})`);
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = t * 1.2;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate(){
+    requestAnimationFrame(animate);
+    // 背景
+    ctx.fillStyle = 'rgba(10,22,40,0.18)';
+    ctx.fillRect(0, 0, W, H);
+
+    // リップル
+    ripples.forEach(r => { r.update(); r.draw(); });
+    ripples = ripples.filter(r => !r.done);
+
+    // 接続線
+    drawConnections();
+
+    // パーティクル
+    particles.forEach(p => { p.update(); p.draw(); });
+    // 期限切れ除去
+    particles = particles.filter(p => p.maxLife === Infinity || p.age < p.maxLife);
+  }
+
+  // 背景を最初に塗りつぶす
+  ctx.fillStyle = '#0a1628';
+  ctx.fillRect(0, 0, W, H);
+  animate();
+
+  // タップ/クリックで光のバースト
+  function burst(ex, ey){
+    ripples.push(new Ripple(ex, ey));
+    // 新しい粒子を追加
+    const count = 8 + Math.floor(Math.random() * 6);
+    for(let i = 0; i < count; i++){
+      const angle = (Math.PI * 2 / count) * i + Math.random() * 0.5;
+      const speed = Math.random() * 1.8 + 0.5;
+      const p = new Particle(ex + Math.cos(angle)*10, ey + Math.sin(angle)*10,
+                             Math.random() < 0.5 ? 'blue' : 'yellow');
+      p.vx = Math.cos(angle) * speed;
+      p.vy = Math.sin(angle) * speed;
+      p.r  = Math.random() * 3 + 1.5;
+      p.maxLife = 150 + Math.random() * 100;
+      p.age = 0;
+      particles.push(p);
+    }
+    // 中心に白い粒子
+    const center = new Particle(ex, ey, 'white');
+    center.r = 4; center.maxLife = 60;
+    particles.push(center);
+  }
+
+  canvas.addEventListener('click', e => {
+    const rect = canvas.getBoundingClientRect();
+    burst(e.clientX - rect.left, e.clientY - rect.top);
+  });
+  canvas.addEventListener('touchstart', e => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const t = e.touches[0];
+    burst(t.clientX - rect.left, t.clientY - rect.top);
+  }, {passive: false});
+
+  // ===== ミニキャンバス（ヘッダーロゴ）=====
+  const mini = document.getElementById('miniCanvas');
+  const mctx = mini.getContext('2d');
+  let mt = 0;
+  function animateMini(){
+    requestAnimationFrame(animateMini);
+    mt += 0.04;
+    mctx.clearRect(0,0,32,32);
+    mctx.fillStyle = '#0a1628';
+    mctx.fillRect(0,0,32,32);
+    // 3点を青×黄×白で
+    const pts = [
+      {x:16+Math.sin(mt)*6, y:10+Math.cos(mt*0.7)*3, c:'#2B6CB8'},
+      {x:10+Math.sin(mt*0.8+2)*5, y:22+Math.cos(mt)*3, c:'#F5C430'},
+      {x:22+Math.sin(mt*1.2+4)*4, y:20+Math.cos(mt*0.9+1)*4, c:'rgba(255,255,255,0.7)'},
+    ];
+    // 線
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        mctx.beginPath();
+        mctx.moveTo(pts[i].x, pts[i].y);
+        mctx.lineTo(pts[j].x, pts[j].y);
+        mctx.strokeStyle='rgba(255,255,255,0.15)';
+        mctx.lineWidth=0.8;
+        mctx.stroke();
+      }
+    }
+    // 点
+    pts.forEach(p => {
+      mctx.beginPath();
+      mctx.arc(p.x, p.y, 2.5, 0, Math.PI*2);
+      mctx.fillStyle = p.c;
+      mctx.fill();
+    });
+  }
+  animateMini();
+})();
+</script>
 </body>
 </html>
