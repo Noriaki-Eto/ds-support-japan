@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ダウン症支援財団 | WARMING WING</title>
+<meta name="description" content="ダウン症のある方の生涯を、日本全国で支える基盤をつくります。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #1A2744;
+    --navy-lt: #2A3A60;
+    --gold:    #C9960C;
+    --gold-lt: #F5E6B8;
+    --gold-pale: #FFFBEE;
+    --warm:    #F7F4EE;
+    --white:   #FFFFFF;
+    --ink:     #1A2332;
+    --ink-2:   #4A5568;
+    --ink-3:   #8A95A3;
+    --line:    #E2D9C8;
+    --serif:   'Noto Serif JP', serif;
+    --sans:    'Noto Sans JP', sans-serif;
+    --cormorant: 'Cormorant Garamond', serif;
+    --radius:  10px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; }
+  p { color: var(--ink-2); line-height: 1.9; }
+  a { color: var(--gold); text-decoration: none; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .section    { padding: 80px 0; }
+  .section--dark { background: var(--navy); }
+  .section--warm { background: var(--warm); }
+
+  .label {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-family: var(--cormorant); font-style: italic;
+    color: var(--gold); display: block; margin-bottom: 10px;
+  }
+  .divider-gold {
+    width: 36px; height: 2px; background: var(--gold);
+    margin: 14px 0 32px;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,39,68,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,150,12,0.2);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: 860px; margin: 0 auto;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+  }
+  .nav-logo-mark {
+    font-family: var(--cormorant); font-size: 1.1rem; font-style: italic;
+    color: var(--gold); letter-spacing: 0.08em;
+  }
+  .nav-logo-text {
+    font-size: 0.78rem; color: rgba(255,255,255,0.85);
+    font-family: var(--serif); font-weight: 300;
+    border-left: 1px solid rgba(201,150,12,0.4); padding-left: 12px;
+  }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+  .nav-links a:hover { color: var(--gold); }
+  @media (max-width: 600px) { .nav-links { display: none; } }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--navy);
+    padding: 100px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,150,12,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-en {
+    font-family: var(--cormorant); font-size: 0.78rem;
+    letter-spacing: 0.28em; color: var(--gold);
+    font-style: italic; margin-bottom: 24px; display: block;
+  }
+  .hero-candle {
+    font-size: 2rem; margin-bottom: 20px; display: block;
+    filter: drop-shadow(0 0 12px rgba(201,150,12,0.5));
+  }
+  .hero h1 {
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    color: white; font-weight: 400;
+    margin-bottom: 24px; line-height: 1.6;
+  }
+  .hero h1 em {
+    font-style: normal; color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 0.95rem; color: rgba(255,255,255,0.65);
+    max-width: 500px; margin: 0 auto 16px; line-height: 2;
+  }
+  .hero-note {
+    display: inline-block;
+    border: 1px solid rgba(201,150,12,0.3);
+    color: rgba(255,255,255,0.4);
+    font-size: 0.72rem; padding: 6px 16px; border-radius: 20px;
+    margin-top: 28px; letter-spacing: 0.08em;
+  }
+
+  /* ===== VISION ===== */
+  .vision-quote {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px; border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: 36px;
+  }
+  .vision-quote p {
+    font-family: var(--serif); font-size: 1.05rem;
+    color: var(--ink); line-height: 2; font-weight: 400;
+  }
+
+  /* ===== STRUCTURE ===== */
+  .flow-box {
+    background: var(--navy); border-radius: 14px;
+    padding: 40px; color: white; margin-bottom: 40px;
+  }
+  .flow-title {
+    font-family: var(--cormorant); font-style: italic;
+    font-size: 0.75rem; letter-spacing: 0.2em;
+    color: var(--gold); margin-bottom: 24px; display: block;
+  }
+  .flow-row {
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap; margin-bottom: 16px;
+  }
+  .flow-node {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,150,12,0.25);
+    border-radius: 8px; padding: 14px 20px;
+    flex: 1; min-width: 160px;
+  }
+  .flow-node-label {
+    font-size: 0.68rem; color: var(--gold);
+    letter-spacing: 0.1em; margin-bottom: 6px; display: block;
+  }
+  .flow-node-title {
+    font-family: var(--serif); font-size: 0.92rem;
+    color: white; font-weight: 400;
+  }
+  .flow-node-sub {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+  .flow-arrow {
+    color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
+  }
+  .flow-highlight {
+    background: rgba(201,150,12,0.12);
+    border: 1px solid rgba(201,150,12,0.4);
+  }
+
+  /* ===== THREE ROLES ===== */
+  .roles-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media (max-width: 640px) { .roles-grid { grid-template-columns: 1fr; } }
+  .role-card {
+    border-radius: var(--radius); padding: 28px 22px;
+    border: 1px solid var(--line);
+  }
+  .role-card--main    { background: var(--navy); border-color: var(--navy); }
+  .role-card--partner { background: var(--warm); }
+  .role-card--support { background: var(--gold-pale); border-color: var(--gold-lt); }
+  .role-badge {
+    display: inline-block; font-size: 0.65rem;
+    padding: 3px 10px; border-radius: 4px; margin-bottom: 14px;
+    letter-spacing: 0.08em; font-weight: 500;
+  }
+  .role-badge--main    { background: var(--gold); color: var(--navy); }
+  .role-badge--partner { background: var(--navy); color: white; }
+  .role-badge--support { background: var(--gold-lt); color: var(--gold); border: 1px solid var(--gold); }
+  .role-card h3 { font-size: 1rem; margin-bottom: 8px; }
+  .role-card--main h3 { color: white; }
+  .role-rep {
+    font-size: 0.78rem; margin-bottom: 12px;
+  }
+  .role-card--main .role-rep { color: rgba(255,255,255,0.5); }
+  .role-card p { font-size: 0.82rem; line-height: 1.75; }
+  .role-card--main p { color: rgba(255,255,255,0.7); }
+
+  /* ===== PHASES ===== */
+  .phases { display: flex; flex-direction: column; gap: 24px; }
+  .phase-row {
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .phase-num {
+    width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--cormorant); font-size: 1.3rem; font-style: italic;
+  }
+  .phase-num--1 { background: var(--navy); color: var(--gold); }
+  .phase-num--2 { background: var(--gold-lt); color: var(--navy); border: 1.5px solid var(--gold); }
+  .phase-num--3 { background: var(--gold); color: white; }
+  .phase-content { flex: 1; }
+  .phase-time {
+    font-size: 0.72rem; color: var(--ink-3);
+    letter-spacing: 0.1em; margin-bottom: 4px;
+  }
+  .phase-title {
+    font-family: var(--serif); font-size: 1rem;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .phase-content p { font-size: 0.84rem; }
+  .phase-connector {
+    width: 2px; height: 20px; background: var(--line);
+    margin: 4px 0 4px 23px;
+  }
+
+  /* ===== MONEY FLOW ===== */
+  .money-visual {
+    background: linear-gradient(160deg, var(--navy) 0%, #2A3A60 100%);
+    border-radius: 14px; padding: 40px; color: white;
+  }
+  .money-main {
+    text-align: center; margin-bottom: 32px;
+    padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .money-amount {
+    font-family: var(--cormorant); font-size: 3.5rem;
+    color: var(--gold); font-style: italic; letter-spacing: 0.05em;
+  }
+  .money-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .money-arrow-down {
+    text-align: center; color: var(--gold); font-size: 1.4rem; margin: 12px 0;
+  }
+  .money-flow-row {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .money-box {
+    flex: 1; min-width: 140px;
+    background: rgba(255,255,255,0.07); border-radius: 8px; padding: 16px 18px;
+    border: 1px solid rgba(201,150,12,0.2);
+  }
+  .money-box-label { font-size: 0.7rem; color: var(--gold); margin-bottom: 4px; }
+  .money-box-val { font-family: var(--serif); color: white; font-size: 0.95rem; }
+  .money-box-sub { font-size: 0.73rem; color: rgba(255,255,255,0.45); margin-top: 3px; }
+
+  /* ===== PRINCIPLE ===== */
+  .principle-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  @media (max-width: 600px) { .principle-grid { grid-template-columns: 1fr; } }
+  .principle-card {
+    padding: 24px; border: 1px solid var(--line); border-radius: var(--radius);
+    background: white; display: flex; gap: 14px; align-items: flex-start;
+  }
+  .principle-num {
+    font-family: var(--cormorant); font-size: 1.6rem;
+    color: var(--gold); font-style: italic; line-height: 1; flex-shrink: 0; margin-top: 2px;
+  }
+  .principle-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .principle-desc { font-size: 0.82rem; color: var(--ink-2); line-height: 1.7; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy); padding: 40px 24px;
+    border-top: 1px solid rgba(201,150,12,0.15);
+  }
+  .footer-inner {
+    max-width: 860px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo {
+    font-family: var(--cormorant); font-style: italic;
+    font-size: 1.2rem; color: var(--gold); letter-spacing: 0.1em;
+  }
+  .footer-logo span {
+    display: block; font-family: var(--serif);
+    font-size: 0.72rem; color: rgba(255,255,255,0.4);
+    font-style: normal; margin-top: 4px;
+  }
+  .footer-note {
+    font-size: 0.72rem; color: rgba(255,255,255,0.3);
+    max-width: 400px; line-height: 1.7; text-align: right;
+  }
+  @media (max-width: 600px) { .footer-note { text-align: left; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">Warming Wing</span>
+      <span class="nav-logo-text">ダウン症支援 全国基盤</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#vision">ビジョン</a></li>
+      <li><a href="#structure">仕組み</a></li>
+      <li><a href="#flow">資金の流れ</a></li>
+      <li><a href="#phases">ロードマップ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-en">WARMING WING — 温める翼</span>
+  <span class="hero-candle">🕯</span>
+  <h1>
+    白い灯りを囲む、あの場を。<br>
+    <em>一度きりの善意で、終わらせない。</em>
+  </h1>
+  <p class="hero-sub">
+    志あるお金を、眠らせない。<br>
+    確実に、家族のもとへ届け、<br>
+    その姿を、支えた人へ還す。
+  </p>
+  <span class="hero-note">※ このサイトは現在非公開です。構想準備中。</span>
+</section>
+
+<!-- VISION -->
+<section class="section" id="vision">
+  <div class="container">
+    <span class="label">Vision</span>
+    <h2 style="margin-bottom:16px;">なぜ、この基盤が必要か</h2>
+    <div class="divider-gold"></div>
+    <div class="vision-quote">
+      <p>ダウン症のある方の生涯を、地域だけで支えるには限界がある。神戸で生まれたつながりを、全国の家族へ届けるために、持続可能な資金基盤と透明な仕組みが必要だ。</p>
+    </div>
+    <p>ダウン症サポートセンターin神戸は2025年に設立されました。芦屋カフェでの就労支援、集いの場での家族支援。小さくても、確かな現場があります。</p>
+    <p style="margin-top:16px;">しかし現場を続けるには、安定した資金が必要です。一般財団法人として基本財産を確保し、その運用益で永続的に現場を支える。これが「Warming Wing」の構想です。</p>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="section section--warm" id="structure">
+  <div class="container">
+    <span class="label">Structure</span>
+    <h2 style="margin-bottom:16px;">三つの立場が、それぞれの場所で</h2>
+    <div class="divider-gold"></div>
+    <p style="margin-bottom:32px;">担う人・支える人・つなぐ人。それぞれが独立した信頼で結ばれ、誰か一人を通さなければ動けない構造にしない。</p>
+
+    <div class="roles-grid">
+      <div class="role-card role-card--main">
+        <span class="role-badge role-badge--main">担い手（主役）</span>
+        <h3>一般社団法人<br>ヤドリギアート</h3>
+        <p class="role-rep" style="color:rgba(255,255,255,0.4);">代表：江藤惠美</p>
+        <p>集いの場を主催・運営する。現場・もてなし・デザイン・当事者の感覚。この場の主役。</p>
+      </div>
+      <div class="role-card role-card--partner">
+        <span class="role-badge role-badge--partner">外部協力</span>
+        <h3>atelier TECNOFORM</h3>
+        <p class="role-rep" style="color:var(--ink-3);">代表：江藤徳晃</p>
+        <p>外部の協力として、仕組み・記録・運営を支える。中にいないから、透明に報告できる。</p>
+      </div>
+      <div class="role-card role-card--support">
+        <span class="role-badge role-badge--support">支える人</span>
+        <h3>財団・支援者</h3>
+        <p class="role-rep" style="color:var(--gold);">志に共感する方々</p>
+        <p>場の費用を支える。お金は出すが、運営には口を出さない。志が、確実に届くことだけを願う。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONEY FLOW -->
+<section class="section" id="flow">
+  <div class="container">
+    <span class="label">Fund Flow</span>
+    <h2 style="margin-bottom:16px;">お金は支援から、報告は支援へ</h2>
+    <div class="divider-gold"></div>
+    <p style="margin-bottom:32px;">一方通行にしない。使い道が、必ず還る。</p>
+
+    <div class="money-visual">
+      <div class="money-main">
+        <div class="money-amount">¥200,000,000</div>
+        <div class="money-label">基本財産（一般財団法人へ寄付）</div>
+      </div>
+      <div class="money-arrow-down">↓</div>
+      <div class="money-flow-row">
+        <div class="money-box">
+          <div class="money-box-label">運用方法</div>
+          <div class="money-box-val">国債・安全運用</div>
+          <div class="money-box-sub">元本を守る運用</div>
+        </div>
+        <span style="color:var(--gold); font-size:1.2rem;">→</span>
+        <div class="money-box money-highlight" style="background:rgba(201,150,12,0.15); border-color:rgba(201,150,12,0.5);">
+          <div class="money-box-label">年間運用益（目安）</div>
+          <div class="money-box-val" style="color:var(--gold);">約¥2,000,000/年</div>
+          <div class="money-box-sub">活動費として分配</div>
+        </div>
+      </div>
+      <div class="money-arrow-down">↓</div>
+      <div class="money-flow-row">
+        <div class="money-box">
+          <div class="money-box-label">支援先①</div>
+          <div class="money-box-val">ヤドリギアート</div>
+          <div class="money-box-sub">集いの場・運営費</div>
+        </div>
+        <span style="color:var(--gold); font-size:1.2rem;">＋</span>
+        <div class="money-box">
+          <div class="money-box-label">支援先②</div>
+          <div class="money-box-val">ダウン症サポートセンターin神戸</div>
+          <div class="money-box-sub">地域支援活動費</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:0.78rem; color:var(--gold); margin-bottom:8px;">そして、報告が、支援者へ還る</div>
+        <div style="font-size:0.84rem; color:rgba(255,255,255,0.6); line-height:1.8;">「あなたの支えで、こんな家族が、こうつながりました」。何にいくら使い、どんな場が生まれたかを、見える形でお返しする。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="section section--warm" id="principles">
+  <div class="container">
+    <span class="label">Principles</span>
+    <h2 style="margin-bottom:16px;">なぜ、この形なのか</h2>
+    <div class="divider-gold"></div>
+    <div class="principle-grid">
+      <div class="principle-card">
+        <span class="principle-num">01</span>
+        <div>
+          <div class="principle-title">主役は、現場の人</div>
+          <div class="principle-desc">場を担うのはヤドリギ。当事者の感覚と、もてなしを持つ人が主役。仕組みを作る人が、場を支配しない。</div>
+        </div>
+      </div>
+      <div class="principle-card">
+        <span class="principle-num">02</span>
+        <div>
+          <div class="principle-title">支える側は、外から</div>
+          <div class="principle-desc">外部協力だからこそ、立場が混ざらず、使い道を客観的に記録し、透明に報告できる。</div>
+        </div>
+      </div>
+      <div class="principle-card">
+        <span class="principle-num">03</span>
+        <div>
+          <div class="principle-title">お金と口出しを、分ける</div>
+          <div class="principle-desc">支援者はお金を出すが運営には口を出さない。志は尊重され、運営は自律する。</div>
+        </div>
+      </div>
+      <div class="principle-card">
+        <span class="principle-num">04</span>
+        <div>
+          <div class="principle-title">使い道が、必ず見える</div>
+          <div class="principle-desc">法人と法人の関係だから、報告が仕組みになる。志あるお金を、眠らせない。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="phases">
+  <div class="container">
+    <span class="label">Roadmap</span>
+    <h2 style="margin-bottom:16px;">段階的に、確実に</h2>
+    <div class="divider-gold"></div>
+    <div class="phases">
+      <div class="phase-row">
+        <div class="phase-num phase-num--1">I</div>
+        <div class="phase-content">
+          <div class="phase-time">現在 〜 2027年</div>
+          <div class="phase-title">実績を積む</div>
+          <p>ダウン症サポートセンターin神戸・ヤドリギアートでの活動実績を積む。集いの場を継続し、報告書を整備する。基本財産の受け皿として一般財団法人の設立準備を進める。</p>
+        </div>
+      </div>
+      <div class="phase-connector"></div>
+      <div class="phase-row">
+        <div class="phase-num phase-num--2">II</div>
+        <div class="phase-content">
+          <div class="phase-time">2027年 〜 2029年</div>
+          <div class="phase-title">一般財団法人を設立</div>
+          <p>基本財産2億円で一般財団法人を設立。国債運用を開始し、年間約200万円の運用益でヤドリギアート・ダウン症サポートセンターへの支援を制度化する。透明な報告体制を構築。</p>
+        </div>
+      </div>
+      <div class="phase-connector"></div>
+      <div class="phase-row">
+        <div class="phase-num phase-num--3">III</div>
+        <div class="phase-content">
+          <div class="phase-time">2029年以降</div>
+          <div class="phase-title">公益財団法人へ</div>
+          <p>活動実績・財務透明性・ガバナンス体制が整ったタイミングで公益認定を申請。寄付者への税制優遇が生まれ、支援の輪が全国へ広がる基盤を完成させる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Warming Wing
+      <span>ダウン症支援 全国基盤 構想準備サイト</span>
+    </div>
+    <div class="footer-note">
+      ※ このサイトは現在非公開です。構想を整理するための準備サイトです。具体の契約・会計・税務は専門家の確認のもとで行います。<br>
+      連携：ヤドリギアート × atelier TECNOFORM × ダウン症サポートセンターin神戸
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
